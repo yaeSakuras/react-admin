@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    margin: 0;
+    font-weight: 400
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, dd, dl, form, ol, p, ul, pre {
+    margin: 0
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ol, ul {
+    list-style-type: none;
+    padding: 0
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+img {
+    border: 0;
 }
 
-.App-link {
-  color: #61dafb;
+button, input, select, textarea {
+    font-size: 1em;
+    font-family: inherit;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a, a:hover {
+    text-decoration: none
+}
+
+pre {
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    font-size: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.ant-layout-sider {
+    height: 100vh;
+    min-height: 572px;
+}
+
+.ant-layout .layout-logo{
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.ant-layout .ant-layout-header {
+    background: #fff;
+    padding: 0 16px;
+}
+
+.ant-layout .ant-breadcrumb,
+.ant-layout .ant-layout-footer{
+    padding: 16px;
+}
+
+.ant-layout .ant-layout-content {
+    height: calc(100vh - 54px - 54px - 64px);
+    min-height: 400px;
+    padding: 16px;
+    overflow: auto;
+    background: #fff;
 }
