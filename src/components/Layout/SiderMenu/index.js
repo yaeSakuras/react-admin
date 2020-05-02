@@ -1,5 +1,5 @@
 import React from "react"
-import {useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom"
 import {useObserver} from "mobx-react"
 import {Layout, Menu} from "antd"
 
@@ -12,8 +12,11 @@ const SiderMenu = () => {
     const history = useHistory()
     const {globalStore} = useStore()
 
-    const linkTo = (param) => {
-        param && history.push(param)
+    const routerChange = (param) => {
+        if(param){
+            history.push(param)
+            globalStore.routerChange(param)
+        }
     }
 
     const renderMenu = (data) => {
@@ -23,7 +26,7 @@ const SiderMenu = () => {
                     {renderMenu(i.children)}
                 </SubMenu>
             }
-            return <Menu.Item key={i.id} title={i.name} onClick={() => linkTo(i.url)}>{i.name}</Menu.Item>
+            return <Menu.Item key={i.id} title={i.name} onClick={() => routerChange(i.url)}>{i.name}</Menu.Item>
         })
     }
 
