@@ -83,10 +83,9 @@ class GlobalStore {
 
     @action
     initMenuKeys(url) {
-        const {path} = findNodeById(this.menu, "url", url)
-        const pathToArry = path.split("-")
+        const pathToArry = findNodeById(this.menu, "url", url).path.split("-")
         this.breadcrumbs.replace(pathToArry.map(i => findNodeById(this.menu, "id", i).name))
-        if(pathToArry.length > 1){
+        if (pathToArry.length > 1) {
             this.defaultOpenKeys.replace(pathToArry.splice(0, pathToArry.length - 1))
         }
         this.defaultSelectedKeys.replace(pathToArry)
@@ -94,8 +93,7 @@ class GlobalStore {
 
     @action
     routerChange(url) {
-        const {path} = findNodeById(this.menu, "url", url)
-        const pathToArry = path.split("-")
+        const pathToArry = findNodeById(this.menu, "url", url).path.split("-")
         this.breadcrumbs.replace(pathToArry.map(i => findNodeById(this.menu, "id", i).name))
     }
 }
