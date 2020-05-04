@@ -1,6 +1,8 @@
 import React, {useEffect} from "react"
+import {Spin} from "antd"
 import useStore from "../../stores"
 import {useLocation} from "react-router-dom"
+import "./index.less"
 
 function RouterLoading() {
     const {globalStore} = useStore()
@@ -13,7 +15,9 @@ function RouterLoading() {
     }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div>loading...</div>
+        <div className="layout-loading">
+            <Spin size="large" />
+        </div>
     )
 }
 

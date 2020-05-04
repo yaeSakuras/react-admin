@@ -1,6 +1,6 @@
 import React from "react"
 import {useObserver} from "mobx-react"
-import { Form, Input, Button } from "antd"
+import {Form, Input, Button} from "antd"
 import { UserOutlined, LockTwoTone } from "@ant-design/icons"
 import "./index.less"
 
