@@ -50,8 +50,9 @@ class GlobalStore {
             }, {
                 id: "122",
                 pid: "12",
-                name: "菜单1-2-2",
+                name: "表单",
                 path: "1-12-122",
+                url: "/home/formTable",
                 children: []
             }]
         }, {

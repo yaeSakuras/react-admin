@@ -3,6 +3,7 @@ import React from "react"
 const Home = React.lazy(() => import("./views/Home"))
 const Login = React.lazy(() => import("./views/Login"))
 const User = React.lazy(() => import("./views/User"))
+const FormTable = React.lazy(() => import("./views/FormTable"))
 
 export default [
     {
@@ -15,6 +16,9 @@ export default [
         routes: [{
             path: '/home/user',
             component: User,
+        },{
+            path: '/home/formTable',
+            component: FormTable,
         }]
     },
     {

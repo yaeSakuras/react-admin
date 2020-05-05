@@ -6,7 +6,6 @@ axios.interceptors.request.use(config => {
         config.data = qs.stringify(config.data)
         config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
     }
-    config.headers['temp-id'] = ''
     return config
 }, err => {
     return Promise.resolve(err)
