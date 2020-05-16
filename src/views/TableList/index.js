@@ -3,7 +3,7 @@ import {useFormTable} from "@umijs/hooks"
 import {Button, Col, Form, Input, Row, Table} from "antd"
 import useStore from "../../stores"
 
-const FormTable = () => {
+const TableList = () => {
     const [form] = Form.useForm()
     const {userStore} = useStore()
 
@@ -71,4 +71,4 @@ const FormTable = () => {
     )
 }
 
-export default FormTable
+export default TableList

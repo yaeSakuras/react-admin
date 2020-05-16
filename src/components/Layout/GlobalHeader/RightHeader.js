@@ -15,7 +15,7 @@ const RightHeader = () => {
 
     return (
         <div className="right-header">
-            <Dropdown trigger="click" overlay={menu}>
+            <Dropdown overlay={menu}>
                 <div className="avator">
                     <span className="name">Zhou</span>
                 </div>

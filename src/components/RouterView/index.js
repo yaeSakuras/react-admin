@@ -2,7 +2,7 @@ import React from "react"
 import {Route, Redirect} from "react-router-dom"
 
 function RouteRender(route) {
-    const {path, routes = []} = route;
+    const {path, routes = []} = route
     if (path === "/") {
         return (
             <Route path="/" exact render={() => (
