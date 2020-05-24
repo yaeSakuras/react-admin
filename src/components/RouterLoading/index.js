@@ -9,8 +9,8 @@ function RouterLoading() {
     const location = useLocation()
     useEffect(() => {
         const {pathname} = location
-        if(~pathname.indexOf("home")){
-            globalStore.initMenuKeys(pathname)
+        if(~pathname.indexOf("/home/")){
+            globalStore.getMenus().then(() => globalStore.initMenuKeys(pathname))
         }
     }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
