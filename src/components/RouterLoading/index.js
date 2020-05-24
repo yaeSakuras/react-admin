@@ -9,6 +9,7 @@ function RouterLoading() {
     const location = useLocation()
     useEffect(() => {
         const {pathname} = location
+        console.log(pathname)
         if(~pathname.indexOf("/home/")){
             globalStore.getMenus().then(() => globalStore.initMenuKeys(pathname))
         }
@@ -21,4 +22,4 @@ function RouterLoading() {
     )
 }
 
-export default RouterLoading;
+export default RouterLoading

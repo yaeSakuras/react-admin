@@ -1,5 +1,5 @@
-import React from "react"
-import {useHistory} from "react-router-dom"
+import React, {useEffect} from "react"
+import {useHistory, useLocation} from "react-router"
 import {useObserver} from "mobx-react"
 import {Layout, Menu} from "antd"
 
@@ -9,11 +9,16 @@ const {Sider} = Layout
 const {SubMenu} = Menu;
 
 const SiderMenu = () => {
+    const location = useLocation()
     const history = useHistory()
     const {globalStore} = useStore()
 
+    useEffect(()=> {
+        console.log(location)
+    },[location])
+
     const routerChange = (param) => {
-        if(param){
+        if (param) {
             history.push(param)
             globalStore.routerChange(param)
         }
