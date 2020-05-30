@@ -23,8 +23,8 @@ function findNodeById(tree, query, id) {
 class GlobalStore {
     @observable collapsed = false
     @observable breadcrumbs = []
-    @observable defaultOpenKeys = []
-    @observable defaultSelectedKeys = []
+    @observable openKeys = []
+    @observable selectedKeys = []
     @observable menu = []
 
     @action
@@ -33,13 +33,33 @@ class GlobalStore {
     }
 
     @action
+    onSelectedChange(key) {
+        this.selectedKeys.replace([key])
+    }
+
+    @action
+    onOpenChange(keys) {
+        if (keys.length > 1) {
+            const current = keys.slice(keys.length - 1)
+            const node = findNodeById(this.menu, "id", current[0])
+            if (node.pid === "0") {
+                this.openKeys.replace(current)
+            } else {
+                this.openKeys.replace(keys)
+            }
+        } else {
+            this.openKeys.replace(keys)
+        }
+    }
+
+    @action
     initMenuKeys(url) {
         const pathToArry = findNodeById(this.menu, "url", url).path.split("-")
-        this.breadcrumbs.replace(pathToArry.map(i => findNodeById(this.menu, "id", i).name))
         if (pathToArry.length > 1) {
-            this.defaultOpenKeys.replace(pathToArry.splice(0, pathToArry.length - 1))
+            this.openKeys.replace(pathToArry.splice(0, pathToArry.length - 1))
         }
-        this.defaultSelectedKeys.replace(pathToArry)
+        this.selectedKeys.replace(pathToArry)
+        this.breadcrumbs.replace(pathToArry.map(i => findNodeById(this.menu, "id", i).name))
     }
 
     @action
@@ -49,8 +69,8 @@ class GlobalStore {
     }
 
     @action
-    async getMenus(){
-        if(this.menu.length === 0){
+    async getMenus() {
+        if (this.menu.length === 0) {
             this.menu = await iGetMenus()
         }
     }
