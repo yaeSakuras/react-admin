@@ -1,6 +1,7 @@
 import React from "react"
 
 const Home = React.lazy(() => import("./views/Home"))
+const WorkPlace = React.lazy(() => import("./views/WorkPlace"))
 const BasicForm = React.lazy(() => import("./views/BasicForm"))
 const StepForm = React.lazy(() => import("./views/StepForm"))
 const BasicList = React.lazy(() => import("./views/BasicList"))
@@ -13,7 +14,7 @@ const Login = React.lazy(() => import("./views/Login"))
 export default [
     {
         path: '/',
-        to: '/home'
+        to: '/home/workplace'
     },
     {
         path: '/login',
@@ -23,6 +24,9 @@ export default [
         path: '/home',
         component: Home,
         routes: [{
+            path: '/home/workplace',
+            component: WorkPlace,
+        },{
             path: '/home/basic-form',
             component: BasicForm,
         },{

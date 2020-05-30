@@ -70,8 +70,13 @@ class GlobalStore {
 
     @action
     async getMenus() {
-        if (this.menu.length === 0) {
-            this.menu = await iGetMenus()
+        const cacheMenus = JSON.parse(localStorage.getItem("menus"))
+        if(cacheMenus){
+            this.menu = cacheMenus
+        }else{
+            const menus = await iGetMenus()
+            this.menus = menus
+            localStorage.setItem("menus",JSON.stringify(menus))
         }
     }
 }

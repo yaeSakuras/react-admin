@@ -13,9 +13,10 @@ const SiderMenu = () => {
     const history = useHistory()
     const {globalStore} = useStore()
     const {pathname} = location
-    useEffect(()=> {
+
+    useEffect(() => {
         globalStore.getMenus().then(() => globalStore.initMenuKeys(pathname))
-    },[])// eslint-disable-line react-hooks/exhaustive-deps
+    }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
     const routerChange = (param) => {
         if (param) {
@@ -24,12 +25,12 @@ const SiderMenu = () => {
         }
     }
 
-    const onSelectedChange = (item)=> {
+    const onSelectedChange = (item) => {
         const {key} = item
         globalStore.onSelectedChange(key)
     }
 
-    const onOpenChange = (openKeys)=> {
+    const onOpenChange = (openKeys) => {
         globalStore.onOpenChange(openKeys)
     }
 

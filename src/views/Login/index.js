@@ -1,13 +1,19 @@
 import React from "react"
+import {useHistory} from "react-router"
 import {useObserver} from "mobx-react"
 import {Form, Input, Button} from "antd"
 import { UserOutlined, LockTwoTone } from "@ant-design/icons"
+import useStore from "../../stores"
+
 import "./index.less"
 
+
 const Login = ()=> {
+    const history = useHistory()
+    const {globalStore} = useStore()
 
     const onFinish = values => {
-        console.log(values)
+        globalStore.getMenus().then(() => history.push("/"))
     }
 
     return useObserver(() => (

@@ -19,16 +19,8 @@
         "pid":"1",
         "name":"工作台",
         "path":"1-12",
-        "children":[
-          {
-            "id":"121",
-            "pid":"12",
-            "name":"测试",
-            "path":"1-12-121",
-            "url":"/home/test",
-            "children":[]
-          }
-        ]
+        "url": "/home/workplace",
+        "children":[]
       }
     ]
   },
